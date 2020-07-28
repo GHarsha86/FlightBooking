@@ -13,14 +13,14 @@ import com.example.FlightBooking.Service.FlightService;
 import com.example.FlightBooking.Service.FlightServiceImpl;
 
 @RestController
-@RequestMapping("flightbooking")
+@RequestMapping("/flightbooking")
 public class Controller {
 	@Autowired
-	FlightServiceImpl flightService;
+	FlightService flightService;
 	
-	@GetMapping
+	@GetMapping("/getflights")
 	public @ResponseBody List<Flight> getAllFlights(){
-		System.out.println(".............."+ flightService.getAll().get(0));
+		//System.out.println(".............."+ flightService.getAll().get(0));
 		return flightService.getAll();
 	}
 
