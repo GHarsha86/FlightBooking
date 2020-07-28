@@ -18,5 +18,20 @@ public class FlightServiceImpl implements FlightService{
 		// TODO Auto-generated method stub
 		return flightRepo.findAll();
 	}
+	@Override
+	public List<Flight> getFlights(String origin, String date) {
+		// TODO Auto-generated method stub
+		return flightRepo.findOriginFlight(origin, date);
+	}
+	@Override
+	public List<Flight> getFlightType(String flightType, String origin, String date) {
+		// TODO Auto-generated method stub
+		return flightRepo.findFlightType(flightType, origin, date);
+	}
+	@Override
+	public List<Flight> getFlightToFrom(String origin, String destination, String date) {
+		// TODO Auto-generated method stub
+		return flightRepo.findFlightToFrom(origin, destination, date);
+	}
 
 }
