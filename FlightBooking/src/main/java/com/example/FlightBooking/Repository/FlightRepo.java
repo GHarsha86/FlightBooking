@@ -11,6 +11,7 @@ import com.example.FlightBooking.Modal.Flight;
 
 @Repository
 public interface FlightRepo extends JpaRepository<Flight, Long> {
+	
 
 	@Query(value ="select * from flight where flight.origin= origin and flight.flightdate= flightdate", nativeQuery=true)
 	List<Flight> findOriginFlight(@Param("origin") String origin, @Param("date") String flightdate);
@@ -24,7 +25,10 @@ public interface FlightRepo extends JpaRepository<Flight, Long> {
 	@Query(value="select * from flight where flight.origin= origin and flight.destination=destination and flight.flightnumber=flightnumber", nativeQuery=true)
 	List<Flight> findFlightCombo(@Param("origin") String origin, @Param("destination") String destination, @Param("flightnumber") String flightnumber);
 	
-	@Query(value="select * from flight where flight.flightnumber=flightnumber and flight.flightdate=flightdate and flight.flighttime=flighttime", nativeQuery=true)
+	@Query(value="select * from flight where flight.flightnumber=flightnumber and flight.flightdate=flightdate and flight.flighttime=flighttime limit 1", nativeQuery=true)
 	List<Flight> findFlightTime(@Param("flightnumber") String flightnumber, @Param("flightdate") String flightdate, @Param("flighttime") String flighttime);
+
+	@Query(value=" select * from flight join flightinfo on flight.flightinfo = flightinfo.flightinfoid and flight.flightdate= flightdate and flightinfo.flighttype=flighttype", nativeQuery=true)
+	List<Flight> flightByType(@Param("flighttype") String flighttype,@Param("flightdate") String flightdate);
 }
 

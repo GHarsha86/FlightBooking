@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Table(name = "passenger")
 public class Passenger {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "passengerid")
 	private long passengerId;
 	

@@ -53,9 +53,7 @@ public class FlightServiceImpl implements FlightService{
 		flight1.setFlightNumber(flight.getFlightNumber());
 		flight1.setFlightDate(flight.getFlightDate());
 		flight.setFlightTime(flight.getFlightTime());
-		flight.setFlightInfo(flight.getFlightInfo());
-		flight.setFareId(flight.getFareId());
-		flight.setInvId(flight.getInvId());
+	
 		return flightRepo.save(flight1);
 	}
 	@Override
@@ -71,7 +69,13 @@ public class FlightServiceImpl implements FlightService{
 		flight.setFlightInfo(flight.getFlightInfo());
 		flight.setFareId(flight.getFareId());
 		flight.setInvId(flight.getInvId());
+		System.out.println(".........."+ flight1);
 		return flightRepo.save(flight1);
+	}
+	@Override
+	public List<Flight> getFlightByType(String flighttype, String flightdate) {
+		// TODO Auto-generated method stub
+		return flightRepo.flightByType(flighttype,flightdate);
 	}
 
 }

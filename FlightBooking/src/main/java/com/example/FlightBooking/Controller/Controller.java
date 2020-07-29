@@ -30,12 +30,16 @@ public class Controller {
 	@Autowired 
 	PassengerService passengerService;
 	
-	@GetMapping("/getflights")
-	public @ResponseBody List<Flight> getAllFlights(){
+	@GetMapping("/getflights/{origin}/{date}")
+	public @ResponseBody List<Flight> getAllFlights(@PathVariable String origin, @PathVariable String date){
 		//System.out.println(".............."+ flightService.getAll().get(0));
-		return flightService.getAll();
+		return flightService.getFlights(origin, date);
 	}
-	
+
+	@GetMapping ("/getflightbytype/{flighttype}/{date}")
+	public @ResponseBody List<Flight> getFlightBYTypes(@PathVariable String flighttype, @PathVariable String date) {
+		return flightService.getFlightByType(flighttype,date);
+	}
 	@GetMapping("/getflights/{flightType}/{origin}/{date}")
 	public @ResponseBody List<Flight> getFlightsfrom(@PathVariable String origin, @PathVariable String date, @PathVariable String flightType) {
 		return flightService.getFlightType(flightType, origin, date);

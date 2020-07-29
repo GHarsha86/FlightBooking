@@ -16,4 +16,5 @@ public interface FlightService {
 	List<Flight> getFlightByTime(String flightnumber, String flightdate, String flighttime);
 	Flight createNewFlight(Flight flight);
 	Flight updateFlight(String date, String flightnumber, Flight flight);
+	List<Flight> getFlightByType(String flighttype, String date);
 }
