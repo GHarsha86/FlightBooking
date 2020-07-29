@@ -132,3 +132,4 @@ CREATE TABLE `bookingdetails`  (
 
 INSERT INTO `bookingdetails` VALUES (93, 94), (93, 95);
 COMMIT;
+	

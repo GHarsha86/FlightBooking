@@ -14,9 +14,9 @@ import javax.persistence.Table;
 @Table(name="bookingdetails")
 public class BookingDetails implements Serializable  {
 
-
-	@Column(name="bookingid")
-	private long bookingId;
+	@ManyToOne	
+	@JoinColumn(name="bookingrecordid")
+	private BookingRecord bookingId;
 	
 	@Id
 	@ManyToOne
@@ -29,23 +29,28 @@ public class BookingDetails implements Serializable  {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BookingDetails(long bookingId, Passenger passengerId) {
+ 
+	public BookingDetails(BookingRecord bookingId, Passenger passengerId) {
 		super();
 		this.bookingId = bookingId;
 		this.passengerId = passengerId;
 	}
 
-	public long getBookingId() {
+
+	public BookingRecord getBookingId() {
 		return bookingId;
 	}
 
-	public void setBookingId(long bookingId) {
+
+	public void setBookingId(BookingRecord bookingId) {
 		this.bookingId = bookingId;
 	}
+
 
 	public Passenger getPassengerId() {
 		return passengerId;
 	}
+
 
 	public void setPassengerId(Passenger passengerId) {
 		this.passengerId = passengerId;
