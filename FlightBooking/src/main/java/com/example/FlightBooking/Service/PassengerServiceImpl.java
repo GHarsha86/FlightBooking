@@ -3,10 +3,12 @@ package com.example.FlightBooking.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.FlightBooking.Modal.Passenger;
 import com.example.FlightBooking.Repository.PassengerRepo;
 
+@Service
 public class PassengerServiceImpl implements PassengerService{
 
 	@Autowired
